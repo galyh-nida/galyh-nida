@@ -1,0 +1,319 @@
+/* =========================================================================
+   UNDANGAN PERNIKAHAN — STYLESHEET
+   Palet warna diambil langsung dari ilustrasi: krem kertas, hijau zaitun
+   bingkai, merah bata mawar, dan kuning gading bunga kecil.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Amiri:wght@400;700&family=Mrs+Saint+Delafield&display=swap');
+
+:root{
+  --cream:        #F7F1E4;
+  --cream-deep:   #EFE6D2;
+  --ink:          #3A3428;
+  --olive:        #6E7A3A;
+  --olive-deep:   #545E2C;
+  --rose:         #A2402F;
+  --rose-soft:    #D9A79A;
+  --gold:         #C9A24B;
+  --line:         rgba(84,94,44,0.25);
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-script:  'Mrs Saint Delafield', cursive;
+  --font-body:    'Jost', sans-serif;
+  --font-arabic:  'Amiri', serif;
+
+  --container: 480px;
+  --radius: 4px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--cream-deep);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+#app{
+  max-width:var(--container);
+  margin:0 auto;
+  background:var(--cream) url('../img/paper-texture.png');
+  background-size:cover;
+  position:relative;
+  box-shadow:0 0 60px rgba(0,0,0,0.15);
+  min-height:100vh;
+}
+
+img{ max-width:100%; display:block; }
+
+.section{
+  position:relative;
+  padding:72px 28px;
+  text-align:center;
+  overflow:hidden;
+}
+
+.section + .section{ border-top:1px solid var(--line); }
+
+.eyebrow{
+  font-family:var(--font-body);
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  font-size:11px;
+  color:var(--olive-deep);
+  margin-bottom:10px;
+}
+
+.display{
+  font-family:var(--font-display);
+  font-weight:500;
+  color:var(--ink);
+}
+
+h1.display{ font-size:clamp(38px,10vw,52px); line-height:1.1; }
+h2.display{ font-size:clamp(28px,7vw,36px); margin-bottom:8px; }
+
+.script{
+  font-family:var(--font-script);
+  color:var(--rose);
+  font-size:clamp(30px,8vw,42px);
+  line-height:1;
+}
+
+.divider{
+  width:56px; height:1px; background:var(--olive);
+  margin:22px auto; opacity:0.6;
+}
+
+.divider.center::before{
+  content:'✦'; color:var(--gold); display:block; font-size:12px; margin-bottom:6px;
+}
+
+p{ font-size:15px; color:var(--ink); opacity:0.85; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-body);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-size:12px;
+  background:var(--olive);
+  color:var(--cream);
+  border:none;
+  padding:14px 30px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:transform .25s ease, background .25s ease;
+  text-decoration:none;
+}
+.btn:hover{ background:var(--olive-deep); transform:translateY(-2px); }
+.btn.outline{
+  background:transparent; color:var(--olive-deep); border:1px solid var(--olive);
+}
+.btn.outline:hover{ background:var(--olive); color:var(--cream); }
+.btn.rose{ background:var(--rose); }
+.btn.rose:hover{ background:#82301F; }
+
+/* -------------------------------------------------------------- COVER */
+#cover{
+  position:fixed; inset:0; z-index:100;
+  max-width:var(--container); margin:0 auto;
+  background:var(--cream) url('../img/paper-texture.png');
+  background-size:cover;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:40px 28px;
+  transition:transform .9s cubic-bezier(.65,0,.35,1), opacity .9s ease;
+}
+#cover.hide{ transform:translateY(-100%); opacity:0.4; pointer-events:none; }
+
+#cover .frame-wrap{
+  width:180px; margin-bottom:22px;
+  animation: floatY 5s ease-in-out infinite;
+}
+
+#cover .guest-label{
+  font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--olive-deep); margin-bottom:4px;
+}
+#cover .guest-name{
+  font-family:var(--font-script);
+  font-size:34px; color:var(--rose); margin:6px 0 28px;
+  border-bottom:1px dashed var(--line);
+  padding-bottom:10px;
+  min-width:220px;
+}
+
+@keyframes floatY{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+
+/* -------------------------------------------------------------- HERO */
+#hero{
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding-top:56px;
+}
+#hero .frame-wrap{ width:230px; margin:18px auto 26px; }
+#hero .names{
+  font-family:var(--font-script);
+  font-size:clamp(40px,11vw,58px);
+  color:var(--rose);
+  line-height:1.15;
+}
+#hero .amp{ color:var(--gold); font-family:var(--font-display); font-style:italic; }
+#hero .date-badge{
+  margin-top:18px; font-family:var(--font-display); font-size:18px; letter-spacing:.08em;
+  color:var(--olive-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  padding:10px 0; width:80%;
+}
+
+/* -------------------------------------------------------------- ARABIC VERSE */
+.arabic{
+  font-family:var(--font-arabic);
+  font-size:22px;
+  line-height:2.1;
+  color:var(--ink);
+  direction:rtl;
+  margin:20px 0;
+}
+.verse-source{
+  font-size:12px; letter-spacing:.1em; color:var(--olive-deep); text-transform:uppercase;
+}
+
+/* -------------------------------------------------------------- COUPLE CARDS */
+.couple-grid{
+  display:flex; flex-direction:column; gap:44px; margin-top:30px;
+}
+.person-card .photo-frame{
+  width:190px; margin:0 auto 16px; position:relative;
+}
+.person-card .photo-frame img.photo{
+  width:100%; border-radius:50%; border:3px solid var(--cream);
+  outline:1px solid var(--olive);
+  outline-offset:6px;
+}
+.person-card .nickname{
+  font-family:var(--font-script); font-size:32px; color:var(--rose); margin-bottom:4px;
+}
+.person-card .fullname{ font-family:var(--font-display); font-size:19px; margin-bottom:6px; }
+.person-card .parents{ font-size:13px; opacity:.75; max-width:280px; margin:0 auto; }
+.person-card .ig{ font-size:12px; color:var(--olive-deep); margin-top:8px; letter-spacing:.05em; }
+
+/* -------------------------------------------------------------- COUNTDOWN */
+#countdown-grid{
+  display:flex; justify-content:center; gap:12px; margin-top:24px; flex-wrap:wrap;
+}
+.cd-box{
+  background:var(--cream-deep);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:14px 10px;
+  min-width:68px;
+}
+.cd-box .num{ font-family:var(--font-display); font-size:30px; color:var(--rose); display:block; }
+.cd-box .label{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--olive-deep); }
+
+/* -------------------------------------------------------------- EVENTS */
+.event-card{
+  background:var(--cream-deep);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:26px 22px;
+  margin-top:20px;
+  text-align:center;
+}
+.event-card h3{ font-family:var(--font-display); font-size:24px; color:var(--rose); margin-bottom:10px; }
+.event-card .meta{ font-size:13px; margin-bottom:4px; }
+.event-card .addr{ font-size:12px; opacity:.7; margin-bottom:16px; }
+
+/* -------------------------------------------------------------- RSVP */
+.rsvp-form{ text-align:left; margin-top:24px; display:flex; flex-direction:column; gap:16px; }
+.field label{
+  display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--olive-deep); margin-bottom:6px;
+}
+.field input, .field select, .field textarea{
+  width:100%; padding:12px 14px; border-radius:var(--radius);
+  border:1px solid var(--line); background:var(--cream);
+  font-family:var(--font-body); font-size:14px; color:var(--ink);
+}
+.field textarea{ resize:vertical; min-height:80px; }
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:2px solid var(--olive); outline-offset:1px;
+}
+.rsvp-status{ font-size:13px; margin-top:10px; min-height:18px; }
+.rsvp-status.ok{ color:var(--olive-deep); }
+.rsvp-status.err{ color:var(--rose); }
+
+.rsvp-summary{
+  display:flex; justify-content:center; gap:28px; margin:26px 0;
+}
+.rsvp-summary .n{ font-family:var(--font-display); font-size:26px; color:var(--rose); display:block; }
+.rsvp-summary .l{ font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--olive-deep); }
+
+.wishes-list{ margin-top:28px; display:flex; flex-direction:column; gap:14px; max-height:420px; overflow-y:auto; padding-right:4px; }
+.wish{
+  text-align:left; background:var(--cream-deep); border-radius:var(--radius);
+  padding:14px 16px; border-left:3px solid var(--olive);
+}
+.wish .who{ font-family:var(--font-display); font-size:16px; color:var(--rose); }
+.wish .att{ font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--olive-deep); margin-left:6px; }
+.wish .msg{ font-size:13px; margin-top:4px; opacity:.85; }
+.wishes-empty{ font-size:13px; opacity:.6; margin-top:20px; }
+
+/* -------------------------------------------------------------- CLOSING */
+#closing .frame-wrap{ width:170px; margin:20px auto; }
+
+/* -------------------------------------------------------------- MUSIC TOGGLE */
+#music-toggle{
+  position:fixed; bottom:22px; right:calc(50% - var(--container)/2 + 22px);
+  width:46px; height:46px; border-radius:50%;
+  background:var(--olive); color:var(--cream);
+  display:flex; align-items:center; justify-content:center;
+  z-index:90; cursor:pointer; border:none; box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+#music-toggle svg{ width:20px; height:20px; }
+#music-toggle.spin svg{ animation:spin 3s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+@media (max-width:480px){
+  #music-toggle{ right:22px; }
+}
+
+/* -------------------------------------------------------------- SCROLL REVEAL */
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+.reveal.d1{ transition-delay:.1s; }
+.reveal.d2{ transition-delay:.2s; }
+.reveal.d3{ transition-delay:.3s; }
+
+/* -------------------------------------------------------------- FLOATING PETALS */
+#petal-layer{
+  position:fixed; inset:0; pointer-events:none; z-index:80;
+  max-width:var(--container); margin:0 auto; overflow:hidden;
+}
+.petal{
+  position:absolute; top:-40px; border-radius:50% 0 50% 50%;
+  opacity:0.7; animation-name:fall; animation-timing-function:linear; animation-iteration-count:infinite;
+}
+@keyframes fall{
+  0%{ transform:translateY(0) rotate(0deg); }
+  100%{ transform:translateY(110vh) rotate(360deg); }
+}
+
+/* -------------------------------------------------------------- FOOTER */
+#site-footer{
+  padding:30px; text-align:center; font-size:11px; letter-spacing:.08em;
+  color:var(--olive-deep); opacity:.7;
+}
+
+/* -------------------------------------------------------------- RESPONSIVE / MOTION */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
