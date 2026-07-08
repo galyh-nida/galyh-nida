@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>The Wedding Invitation</title>
+<meta name="description" content="Undangan Pernikahan">
+<link rel="icon" href="assets/img/frame-empty.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- floating flower petals, purely decorative -->
+<div id="petal-layer"></div>
+
+<!-- ============================================================ COVER -->
+<div id="cover">
+  <div class="frame-wrap"><img src="assets/img/frame-empty.png" alt=""></div>
+  <p class="guest-label" id="cover-eyebrow"></p>
+  <p class="guest-label" id="cover-label"></p>
+  <p class="guest-name" id="cover-guest-name"></p>
+  <button class="btn rose" id="open-btn">Buka Undangan</button>
+</div>
+
+<div id="app">
+
+  <!-- ============================================================ HERO -->
+  <section id="hero" class="section">
+    <p class="eyebrow" id="hero-eyebrow">The Wedding Of</p>
+    <div class="frame-wrap"><img src="assets/img/couple-frame.png" alt="Ilustrasi mempelai"></div>
+    <h1 class="names" id="hero-names"></h1>
+    <div class="date-badge" id="hero-date"></div>
+  </section>
+
+  <!-- ============================================================ OPENING -->
+  <section id="opening" class="section">
+    <p class="reveal" id="opening-greeting" style="font-family:var(--font-display); font-size:20px;"></p>
+    <div class="divider center"></div>
+    <p class="arabic reveal" id="opening-arabic"></p>
+    <p class="reveal" id="opening-translation" style="font-style:italic; opacity:.8;"></p>
+    <p class="verse-source reveal" id="opening-source"></p>
+    <div class="divider"></div>
+    <p class="reveal" id="opening-text"></p>
+  </section>
+
+  <!-- ============================================================ COUPLE -->
+  <section id="couple" class="section">
+    <p class="eyebrow">Mempelai</p>
+    <h2 class="display">Kedua Mempelai</h2>
+    <div class="divider center"></div>
+    <div class="couple-grid">
+      <div class="person-card reveal">
+        <div class="photo-frame"><img class="photo" id="bride-photo" src="assets/img/bride.png" alt="Foto mempelai wanita"></div>
+        <p class="nickname" id="bride-nick"></p>
+        <p class="fullname" id="bride-full"></p>
+        <p class="parents" id="bride-parents"></p>
+        <p class="ig" id="bride-ig"></p>
+      </div>
+      <div class="person-card reveal">
+        <div class="photo-frame"><img class="photo" id="groom-photo" src="assets/img/groom.png" alt="Foto mempelai pria"></div>
+        <p class="nickname" id="groom-nick"></p>
+        <p class="fullname" id="groom-full"></p>
+        <p class="parents" id="groom-parents"></p>
+        <p class="ig" id="groom-ig"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ COUNTDOWN -->
+  <section id="countdown" class="section">
+    <p class="eyebrow">Menuju Hari Bahagia</p>
+    <h2 class="display">Countdown</h2>
+    <div class="divider center"></div>
+    <div id="countdown-grid">
+      <div class="cd-box"><span class="num" id="cd-days">00</span><span class="label">Hari</span></div>
+      <div class="cd-box"><span class="num" id="cd-hours">00</span><span class="label">Jam</span></div>
+      <div class="cd-box"><span class="num" id="cd-minutes">00</span><span class="label">Menit</span></div>
+      <div class="cd-box"><span class="num" id="cd-seconds">00</span><span class="label">Detik</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EVENTS -->
+  <section id="events" class="section">
+    <p class="eyebrow">Waktu &amp; Tempat</p>
+    <h2 class="display">Acara</h2>
+    <div class="divider center"></div>
+    <div id="events-list"></div>
+  </section>
+
+  <!-- ============================================================ RSVP -->
+  <section id="rsvp" class="section">
+    <p class="eyebrow">Konfirmasi Kehadiran</p>
+    <h2 class="display">RSVP &amp; Ucapan</h2>
+    <div class="divider center"></div>
+    <p>Mohon konfirmasi kehadiran dan doa restu dari Bapak/Ibu/Saudara/i sekalian.</p>
+
+    <div class="rsvp-summary">
+      <div><span class="n" id="sum-hadir">-</span><span class="l">Hadir</span></div>
+      <div><span class="n" id="sum-tidak">-</span><span class="l">Tidak Hadir</span></div>
+      <div><span class="n" id="sum-total">-</span><span class="l">Ucapan</span></div>
+    </div>
+
+    <form class="rsvp-form" id="rsvp-form">
+      <div class="field">
+        <label for="f-nama">Nama</label>
+        <input type="text" id="f-nama" name="nama" placeholder="Nama lengkap" required>
+      </div>
+      <div class="field">
+        <label for="f-kehadiran">Konfirmasi Kehadiran</label>
+        <select id="f-kehadiran" name="kehadiran" required>
+          <option value="">Pilih salah satu</option>
+          <option value="Hadir">Insyaallah Hadir</option>
+          <option value="Tidak Hadir">Tidak Bisa Hadir</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-jumlah">Jumlah Tamu (termasuk Anda)</label>
+        <input type="number" id="f-jumlah" name="jumlah" min="1" max="10" value="1" required>
+      </div>
+      <div class="field">
+        <label for="f-ucapan">Ucapan &amp; Doa</label>
+        <textarea id="f-ucapan" name="ucapan" placeholder="Tuliskan ucapan dan doa terbaik untuk kedua mempelai"></textarea>
+      </div>
+      <button type="submit" class="btn" id="rsvp-submit">Kirim</button>
+      <p class="rsvp-status" id="rsvp-status"></p>
+    </form>
+
+    <div class="wishes-list" id="wishes-list">
+      <p class="wishes-empty">Memuat ucapan...</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ CLOSING -->
+  <section id="closing" class="section">
+    <div class="frame-wrap"><img src="assets/img/couple-frame.png" alt=""></div>
+    <p id="closing-text"></p>
+    <p style="margin-top:14px;" id="closing-signoff"></p>
+    <p class="script" style="margin-top:6px;" id="closing-names"></p>
+  </section>
+
+  <footer id="site-footer">
+    <p>Made with love &middot; <span id="footer-year"></span></p>
+  </footer>
+
+</div>
+
+<button id="music-toggle" aria-label="Putar musik">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+</button>
+<audio id="bg-audio" loop preload="none"></audio>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
