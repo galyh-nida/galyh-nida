@@ -87,7 +87,7 @@ const CONFIG = {
   //    Format mp3 disarankan. Loop otomatis, mulai saat tamu buka undangan.
   // ---------------------------------------------------------------------
   music: {
-    src: "assets/audio/song.mp3",
+    src: "love letters.mp3",
     title: "love letters"
   },
 
